@@ -1,0 +1,35 @@
+---
+
+- name: Debian
+  include: debian.yml 
+  when: "ansible_distribution == 'Debian'"
+
+- name: Ubuntu
+  include: ubuntu.yml 
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Update .profile
+  blockinfile: 
+    dest: "{{ project_base_dir }}/.profile"
+    block: |
+      if [ -d "$HOME/venv" ] ; then
+          source $HOME/venv/bin/activate
+      fi
+
+      export DJANGO_SETTINGS_MODULE="{{ project.settings }}"
+
+          #green-one
+      export PS1="\[\e[1;32m\]{{ project.name|upper }} <BACK_END> {{ target|upper }}\[\e[0m\]
+      $PS1"
+
+      export HISTTIMEFORMAT="%d/%m/%y %T   "
+
+    state: present
+  tags: system
+  become: no
+
+- name: Update hostname
+  shell: "echo {{ server }} > /etc/hostname && hostname {{ server }}"
+  become: yes
+  become_user: root
+  tags: system

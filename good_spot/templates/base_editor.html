@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+{% load staticfiles i18n %}
+
+{% block extrahead %}{{ block.super }}
+    <script src="{% static 'js/libs/dutils.js' %}"></script>
+    <script src="{% static 'js/project_urls.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'js/jsoneditor/jsoneditor.js' %}"></script>
+    <!-- Font Awesome icons (Bootstrap, Foundation, and jQueryUI also supported) -->
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+    <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
+
+    <script>
+        // Set the default CSS theme and icon library globally
+        JSONEditor.defaults.theme = 'bootstrap3';
+        JSONEditor.defaults.iconlib = 'fontawesome4';
+    </script>
+
+    <style>
+        div [data-schemapath="root.place_filters"] div[data-schematype="array"] div:first-child,
+        div [data-schemapath="root.place_filters"] div[data-schematype=boolean] div:first-child {
+            border-bottom: 1px solid #e3e3e3;
+            box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+
+        div [data-schemapath="root.place_filters"] div[data-schematype="array"] .checkbox {
+            display: block !important;
+            margin-bottom: 0;
+        }
+
+        div [data-schemapath="root.place_filters"] div[data-schematype=boolean] div:first-child label {
+            font-weight: bold !important;
+        }
+    </style>
+{% endblock %}

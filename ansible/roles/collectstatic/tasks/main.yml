@@ -1,0 +1,9 @@
+---
+
+- name: collectstatic
+  django_manage: >
+    command=collectstatic
+    app_path="{{ project_dir }}"
+    settings="{{ project.settings }}"
+    virtualenv="{{ project_venv_dir }}"
+  tags: collectstatic

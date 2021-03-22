@@ -1,0 +1,30 @@
+---
+project_name: good_spot
+application_name: good_spot
+
+
+# Database settings.
+db_user: "vagrant"
+db_name: "{{ application_name }}"
+db_password: "vagrant"
+
+# Application settings.
+virtualenv_path: "/home/vagrant/venv"
+project_path: "/vagrant"
+requirements_file: "{{ project_path }}/requirements/local.txt"
+django_settings_path: "{{ project_path }}/config"
+django_settings: "config.settings"
+
+
+#Python version - change if you needed (2 or 3.5 or 3.6)
+python_version: 3.6
+
+# Services
+mysql: no
+apache: no
+nginx: no
+postgresql: true
+rabbitmq: true
+redis: no
+supervisor: no
+app: true

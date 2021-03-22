@@ -1,0 +1,38 @@
+[
+  {
+    "model": "places.city",
+    "pk": 1,
+    "fields": {
+      "timezone": "Asia/Tokyo",
+      "city_id": 1,
+      "is_active": true,
+      "country_name": "Japan",
+      "name": "Tokyo",
+      "point": "0101000020E610000012A5BDC117863E405166834C323A4940"
+    }
+  },
+  {
+    "model": "places.city",
+    "pk": 2,
+    "fields": {
+      "timezone": "America/Guayaquil",
+      "city_id": 2,
+      "is_active": true,
+      "country_name": "Ecuador",
+      "name": "Quito",
+      "point": "0101000020E610000012A5BDC117863E405166834C323A4940"
+    }
+  },
+  {
+    "model": "places.city",
+    "pk": 3,
+    "fields": {
+      "timezone": "Europe/Kiev",
+      "city_id": 3,
+      "is_active": true,
+      "country_name": "Ukraine",
+      "name": "Kyiv",
+      "point": "0101000020E610000012A5BDC117863E405166834C323A4940"
+    }
+  }
+]

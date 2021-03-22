@@ -1,0 +1,9 @@
+---
+
+- name: migrate database
+  django_manage: >
+    command=migrate
+    app_path="{{ project_dir }}"
+    settings="{{ project.settings }}"
+    virtualenv="{{ project_venv_dir }}"
+  tags: migrate

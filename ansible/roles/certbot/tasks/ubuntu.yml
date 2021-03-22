@@ -1,0 +1,25 @@
+---
+
+- name: Get certbot-auto
+  get_url:
+    url: https://dl.eff.org/certbot-auto
+    dest: "{{project_base_dir}}/certbot-auto"
+    mode: 0775
+  tags: certbot_ubuntu
+
+- name: Request signed certificate
+  shell: "{{project_base_dir}}/certbot-auto certonly --webroot -w /usr/share/nginx/html/ --non-interactive  --agree-tos --email {{ certbot_email }} -d {{ server }}"
+  become: yes
+  become_user: root 
+  tags: certbot_ubuntu
+
+- name: Add job in cron for certbot 
+  cron:
+    name: "renew certificates"
+    minute: "0"
+    hour: "*/12"
+    job: "{{project_base_dir}}/certbot-auto  renew -q --post-hook \"nginx -s reload\""
+    state: present
+  become: yes
+  become_user: root
+  tags: certbot_cron

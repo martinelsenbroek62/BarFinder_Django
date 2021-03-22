@@ -1,0 +1,7 @@
+{% for calendar in calendars %}
+    <tr>
+        <th colspan="3">
+            <a href="{% url 'day_calendar' calendar.slug %}">{{ calendar.name }}</a>
+        </th>
+    </tr>
+{% endfor %}

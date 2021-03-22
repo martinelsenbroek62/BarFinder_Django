@@ -1,0 +1,49 @@
+---
+
+- name: Check Python
+  stat: path=/usr/local/bin/python{{ Python.apt_ver }}
+  register: bin_python
+  tags: python
+
+- name: Install packages
+  apt: >
+    update_cache=yes
+    name={{ item }}  state=present
+  with_items:
+    - python{{ Python.apt_ver }}-dev
+    - python{{ Python.apt_ver }}-pip
+    - python{{ Python.apt_ver }}-tk
+    - python-boto
+  when: not bin_python.stat.exists
+  become: yes
+  become_user: root
+  tags: python
+
+- name: Download && Unpack Python-{{ Python.ver }}
+  unarchive: >
+    src=https://www.python.org/ftp/python/{{ Python.ver }}/Python-{{ Python.ver }}.tgz
+    dest="{{ project_base_dir }}"
+    copy=no
+  when: not bin_python.stat.exists
+  tags: python
+
+- name: Install Python-{{ Python.ver }}
+  shell: "{{ item }} chdir={{ project_base_dir }}/Python-{{ Python.ver }}"
+  with_items:
+    - ./configure
+    - /usr/bin/make
+    - /usr/bin/make install
+  when: not bin_python.stat.exists
+  become: yes
+  become_user: root 
+  tags: python
+
+
+- name: rm directory
+  file: >
+    path="{{ project_base_dir }}/Python-{{ Python.ver }}"
+    state=absent
+  when: not bin_python.stat.exists
+  become: yes
+  become_user: root
+  tags: python

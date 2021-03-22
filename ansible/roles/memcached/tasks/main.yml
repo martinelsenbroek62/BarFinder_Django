@@ -1,0 +1,12 @@
+---
+
+- name: Install memcached
+  apt: >
+    update_cache=yes
+    name={{ item }}
+    state=present
+  with_items:
+    - memcached
+  become: yes
+  become_user: root
+  tags: memcached

@@ -1,0 +1,25 @@
+---
+
+- name: Add dyndns.service in systemd
+  template: >
+    src=dyndns_service.j2
+    dest="/etc/systemd/system/dyndns.service"
+    owner=root
+  become: yes
+  become_user: root
+  tags: route53_test
+
+- name: Add in services dyndns
+  service: >
+    enabled=yes
+    name=dyndns
+  become: yes
+  become_user: root
+  tags: route53_test
+
+- name: Run dyndns
+  shell: systemctl daemon-reload && systemctl enable dyndns.service && systemctl start dyndns
+  become: yes
+  become_user: root
+  tags: route53_test
+

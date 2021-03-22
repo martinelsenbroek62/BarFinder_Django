@@ -1,0 +1,32 @@
+[develop]
+mygoodspot.dev.steel.kiwi ansible_ssh_user=admin ansible_ssh_port=22
+
+[develop:vars]
+project_base_dir="/home/admin"
+project_dir="/home/admin/djangoapp"
+project_venv_dir="/home/admin/venv"
+branch=develop
+server=mygoodspot.dev.steel.kiwi
+user=admin
+
+[staging]
+mygoodspot.stg.steel.kiwi ansible_ssh_user=admin ansible_ssh_port=22
+
+[staging:vars]
+project_base_dir="/home/admin"
+project_dir="/home/admin/djangoapp"
+project_venv_dir="/home/admin/venv"
+branch=master
+server=mygoodspot.stg.steel.kiwi
+user=admin
+
+[production]
+le-must.com ansible_ssh_user=admin ansible_ssh_port=22
+
+[production:vars]
+project_base_dir="/opt/mygoodspot"
+project_dir="/opt/mygoodspot/djangoapp"
+project_venv_dir="/opt/mygoodspot/venv"
+branch=master
+server=le-must.com
+user=admin

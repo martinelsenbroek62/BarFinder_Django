@@ -1,0 +1,78 @@
+[
+  {
+    "model": "cities_light.city",
+    "pk": 1,
+    "fields": {
+      "name_ascii": "Kyiv",
+      "slug": "kyiv",
+      "geoname_id": 703448,
+      "alternate_names": "Kiev,Kiew,Kyiw",
+      "name": "Kyiv",
+      "display_name": "Kyiv, Kyiv City, Ukraine",
+      "search_names": "kievkyivcityukraine kievmunicipalitedekievukraine kievstadtkiewukraine kievukraine kiewkyivcityukraine kiewmunicipalitedekievukraine kiewstadtkiewukraine kiewukraine kyivkyivcityukraine kyivmunicipalitedekievukraine kyivstadtkiewukraine kyivukraine kyiwkyivcityukraine kyiwmunicipalitedekievukraine kyiwstadtkiewukraine kyiwukraine",
+      "latitude": "50.45466",
+      "longitude": "30.52380",
+      "region": null,
+      "country": 4,
+      "population": 2797553,
+      "feature_code": "PPLC"
+    }
+  },
+  {
+    "model": "cities_light.city",
+    "pk": 2,
+    "fields": {
+      "name_ascii": "Paris",
+      "slug": "paris",
+      "geoname_id": 4717560,
+      "alternate_names": "",
+      "name": "Paris",
+      "display_name": "Paris, Texas, United States",
+      "search_names": "paristexasunitedstates parisunitedstates",
+      "latitude": "33.66094",
+      "longitude": "-95.55551",
+      "region": null,
+      "country": 3,
+      "population": 24782,
+      "feature_code": "PPLA2"
+    }
+  },
+  {
+    "model": "cities_light.city",
+    "pk": 3,
+    "fields": {
+      "name_ascii": "Colmar",
+      "slug": "colmar",
+      "geoname_id": 3024297,
+      "alternate_names": "",
+      "name": "Colmar",
+      "display_name": "Colmar, Grand Est, France",
+      "search_names": "colmarfrance colmargrandestfrance",
+      "latitude": "48.07871",
+      "longitude": "7.35540",
+      "region": null,
+      "country": 3,
+      "population": 65405,
+      "feature_code": "PPLA2"
+    }
+  },
+  {
+    "model": "cities_light.city",
+    "pk": 4,
+    "fields": {
+      "name_ascii": "Strasbourg",
+      "slug": "strasbourg",
+      "geoname_id": 2973783,
+      "alternate_names": "Estrasburgo,Stra\u00dfburg",
+      "name": "Strasbourg",
+      "display_name": "Strasbourg, Grand Est, France",
+      "search_names": "estrasburgoalsacechampagneardennelorrainefrance estrasburgoalsacechampagneardennelorrainefrankreich estrasburgoalsacechampagneardennelorrainerepubliquefrancaise estrasburgofrance estrasburgofrankreich estrasburgograndestfrance estrasburgograndestfrankreich estrasburgograndestrepubliquefrancaise estrasburgorepubliquefrancaise strasbourgalsacechampagneardennelorrainefrance strasbourgalsacechampagneardennelorrainefrankreich strasbourgalsacechampagneardennelorrainerepubliquefrancaise strasbourgfrance strasbourgfrankreich strasbourggrandestfrance strasbourggrandestfrankreich strasbourggrandestrepubliquefrancaise strasbourgrepubliquefrancaise strassburgalsacechampagneardennelorrainefrance strassburgalsacechampagneardennelorrainefrankreich strassburgalsacechampagneardennelorrainerepubliquefrancaise strassburgfrance strassburgfrankreich strassburggrandestfrance strassburggrandestfrankreich strassburggrandestrepubliquefrancaise strassburgrepubliquefrancaise",
+      "latitude": "48.58392",
+      "longitude": "7.74553",
+      "region": null,
+      "country": 3,
+      "population": 274845,
+      "feature_code": "PPLA"
+    }
+  }
+]

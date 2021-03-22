@@ -1,0 +1,24 @@
+---
+
+- name: Add dyndns.conf in upstart
+  template: >
+    src=dyndns_upstart.j2
+    dest="/etc/init/dyndns.conf"
+    owner=root
+  become: yes
+  become_user: root
+  tags: route53
+
+- name: Add in services dyndns
+  service: >
+    enabled=yes
+    name=dyndns
+  become: yes
+  become_user: root
+  tags: route53
+
+- name: Run dyndns
+  shell: initctl start dyndns
+  become: yes
+  become_user: root
+  tags: route53

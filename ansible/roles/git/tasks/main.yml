@@ -1,0 +1,10 @@
+---
+
+- name: clone/update repository
+  git: >
+    repo="{{ project.repo_url }}"
+    dest="{{ project_dir }}"
+    accept_hostkey=yes
+    version="{{ branch }}"
+  become: no
+  tags: git

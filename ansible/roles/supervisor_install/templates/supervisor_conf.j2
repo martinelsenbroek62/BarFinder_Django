@@ -1,0 +1,99 @@
+[program:web]
+command={{project_venv_dir}}/bin/gunicorn config.wsgi --bind=127.0.0.1:8001
+directory={{project_dir}}
+numprocs=1
+autostart=true
+autorestart=true
+startretries=3
+user={{user}}
+environment=LANG="en_US.UTF-8",
+            LC_ALL="en_US.UTF-8",
+            LC_LANG="en_US.UTF-8",
+redirect_stderr=true
+stdout_logfile={{supervisor.log_dir}}/web.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=3
+stdout_capture_maxbytes=1MB
+
+{% if supervisor.celery|bool %}
+[program:celery]
+command={{project_venv_dir}}/bin/celery {{supervisor.celery_command}}
+directory={{project_dir}}
+numprocs=1
+autostart=true
+autorestart=true
+startretries=3
+user={{user}}
+environment=LANG="en_US.UTF-8",
+            LC_ALL="en_US.UTF-8",
+            LC_LANG="en_US.UTF-8",
+            DJANGO_SETTINGS_MODULE={{project.settings}}
+redirect_stderr=true
+stdout_logfile={{supervisor.log_dir}}/celery.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=3
+stdout_capture_maxbytes=1MB
+{% endif %}
+
+{% if supervisor.celerybeat|bool %}
+[program:celerybeat]
+command={{project_venv_dir}}/bin/celery {{supervisor.celerybeat_command}} -s {{project_dir}}/conf/celerybeat-schedule --pidfile {{project_dir}}/conf/celerybeat.pid
+directory={{project_dir}}
+numprocs=1
+autostart=true
+autorestart=true
+startretries=3
+user={{user}}
+environment=LANG="en_US.UTF-8",
+            LC_ALL="en_US.UTF-8",
+            LC_LANG="en_US.UTF-8",
+            DJANGO_SETTINGS_MODULE={{project.settings}}
+redirect_stderr=true
+stdout_logfile={{supervisor.log_dir}}/celerybeat.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=3
+stdout_capture_maxbytes=1MB
+{% endif %}
+
+{% if supervisor.celery_flower|bool %}
+[program:flower]
+command={{project_venv_dir}}/bin/celery {{supervisor.celery_flower_command}}
+directory={{project_dir}}
+numprocs=1
+autostart=true
+autorestart=true
+startretries=3
+user={{user}}
+environment=LANG="en_US.UTF-8",
+            LC_ALL="en_US.UTF-8",
+            LC_LANG="en_US.UTF-8",
+redirect_stderr=true
+stdout_logfile={{supervisor.log_dir}}/flower.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=3
+stdout_capture_maxbytes=1MB
+{% endif %}
+
+{% if supervisor.websocket|bool %}
+[program:websocket]
+command={{project_venv_dir}}/bin/python {{supervisor.websocket_command}}
+directory={{project_dir}}
+numprocs=1
+autostart=true
+autorestart=true
+startretries=3
+user={{user}}
+environment=LANG="en_US.UTF-8",
+            LC_ALL="en_US.UTF-8",
+            LC_LANG="en_US.UTF-8",
+redirect_stderr=true
+stdout_logfile={{supervisor.log_dir}}/websocket.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=3
+stdout_capture_maxbytes=1MB
+{% endif %}
+
+[group:{{project.name}}]
+programs=web{% if supervisor.celery|bool %},celery{% endif %}{% if supervisor.celerybeat|bool %},celerybeat{% endif %}{% if supervisor.celery_flower|bool %},flower{% endif %}{% if supervisor.websocket|bool %},websocket{% endif %}
+
+priority=999

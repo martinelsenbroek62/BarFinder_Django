@@ -1,0 +1,31 @@
+- name: Installing latest virtualenv
+  pip: >
+    name=virtualenv
+    state=present
+    executable=/usr/bin/pip
+  become: yes
+  become_user: root
+  tags: virtualenv
+
+- name: Check virtualenv
+  stat: path={{ project_venv_dir }}/bin/python
+  register: bin_virtualenv
+  tags: virtualenv
+
+- name: Create python virtual environment
+  shell: "virtualenv -p /usr/local/bin/python{{ venv.python.ver }} {{ project_venv_dir }}"
+  when: not bin_virtualenv.stat.exists
+  become: no
+  tags: virtualenv
+
+- name: Upgrade pip and setuptools
+  pip: >
+    name={{ item }}
+    executable="{{ project_venv_dir }}/bin/pip"
+    state=latest
+  with_items:
+    - pip
+    - setuptools
+  when: not bin_virtualenv.stat.exists
+  become: no
+  tags: virtualenv

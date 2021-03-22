@@ -1,0 +1,11 @@
+---
+
+- name: enable nginx
+  service: >
+    name=nginx
+    enabled=yes
+    runlevel=default
+    state=started
+  become: yes
+  become_user: root
+  tags: nginx

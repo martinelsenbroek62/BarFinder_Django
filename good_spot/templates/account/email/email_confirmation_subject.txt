@@ -1,0 +1,3 @@
+{% load i18n %}
+
+{% blocktrans %}Hi, please verify your account{% endblocktrans %}

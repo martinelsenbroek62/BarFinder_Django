@@ -1,0 +1,12 @@
+---
+
+- name: create mysql database
+  mysql_db: >
+    name="{{ project.database}}"
+    login_user="{{ user }}"
+    state=present
+  tags: database
+
+- name: backup mysql database
+  shell: "mysqldump {{ project.database }} | gzip > {{ project_base_dir }}/backup/db/{{ project.database }}-$(date +%Y-%m-%d-%H%M%S).sql.gz"
+  tags: database

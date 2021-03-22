@@ -1,0 +1,32 @@
+---
+
+- name: Install base packages
+  apt: >
+    update_cache=yes
+    name={{ item }}  state=present
+  with_items:
+    - bash 
+    - build-essential
+    - curl 
+    - git
+    - htop 
+    - libffi-dev 
+    - libfreetype6-dev 
+    - libjpeg8-dev 
+    - liblcms2-dev 
+    - libpq-dev 
+    - libssl-dev 
+    - libssl-doc 
+    - libtiff4-dev 
+    - libwebp-dev 
+    - libxml2-dev 
+    - libxslt1-dev 
+    - openssl 
+    - python-pycurl  
+    - tcl8.5-dev 
+    - tk8.5-dev 
+    - zlib1g-dev
+    - gettext
+  become: yes
+  become_user: root 
+  tags: system

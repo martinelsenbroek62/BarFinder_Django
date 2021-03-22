@@ -1,0 +1,7 @@
+---
+
+- name: restart all supervisor tasks
+  supervisorctl: >
+    name="{{ project.name }}:"
+    state=restarted
+  tags: supervisorctl

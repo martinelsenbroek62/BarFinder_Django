@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% blocktrans %}
+Hi,
+
+Thanks for using NightApp! Please confirm your email address by clicking on the link below.
+
+{{ activate_url }}
+
+If you did not sign up for a NightApp account please disregard this email.
+
+Cheers,
+
+- The NightApp Team
+{% endblocktrans %}

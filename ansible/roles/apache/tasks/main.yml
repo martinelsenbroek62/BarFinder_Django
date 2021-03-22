@@ -1,0 +1,11 @@
+---
+
+- name: enable apache
+  service: >
+    name=apache2
+    enabled=yes
+    runlevel=default
+    state=started
+  become: yes
+  become_user: root
+  tags: apache2

@@ -1,0 +1,18 @@
+---
+
+- name: Create python virtual environment
+  shell: "virtualenv -p /usr/local/bin/python{{ python_version }} {{ virtualenv_path }}"
+  become: no
+  tags: create_venv
+
+- name: Upgrade pip and setuptools
+  pip: >
+    name={{ item }}
+    executable="{{ virtualenv_path }}/bin/pip"
+    state=latest
+  with_items:
+    - pip
+    - setuptools
+  become: no
+  tags: create_venv
+

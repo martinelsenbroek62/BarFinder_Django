@@ -1,0 +1,48 @@
+---
+
+- name: Install base packages
+  apt: >
+    update_cache=yes
+    name={{ item }}  state=present
+  with_items:
+    - bash 
+    - libpam-systemd
+    - vim
+    - build-essential
+    - curl 
+    - git
+    - htop 
+    - libffi-dev 
+    - libfreetype6-dev 
+    - libjpeg-dev 
+    - liblcms2-dev 
+    - libpq-dev 
+    - libssl-dev 
+    - libssl-doc 
+    - libtiff-dev 
+    - libwebp-dev 
+    - libxml2-dev 
+    - libxslt1-dev 
+    - openssl 
+    - python-pycurl  
+    - tcl8.5-dev 
+    - tk8.6-dev 
+    - zlib1g-dev
+    - tmux
+    - bash-completion
+    - gettext
+    - ntpdate
+  become: yes
+  become_user: root 
+  tags: system
+
+- name: Add job in cron for ntpdate
+  cron:
+    name: "ntpdate"
+    minute: "0"
+    hour: "5"
+    job: "/usr/sbin/ntpdate-debian"
+    state: present
+  become: yes
+  become_user: root
+  tags: system

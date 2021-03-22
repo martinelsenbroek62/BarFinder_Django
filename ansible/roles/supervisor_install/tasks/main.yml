@@ -1,0 +1,77 @@
+---
+
+- name: Install supervisor
+  apt: >
+    update_cache=yes
+    name={{ item }}
+    state=present
+  with_items:
+    - supervisor
+  become: yes
+  become_user: root
+  tags: supervisor_install
+
+- name: Add group supervisor
+  group: >
+    name=supervisor
+    state=present
+  become: yes
+  become_user: root
+  tags: supervisor_install
+
+
+- name: Add user to group
+  shell: " usermod -a -G supervisor {{ user }} "
+  become: yes
+  become_user: root
+  tags: supervisor_install
+
+- name: check supervisord.conf.backup
+  stat: path=/etc/supervisor/supervisord.conf.backup
+  register: backup
+  tags: supervisor_install
+
+- name: backup supervisord.conf
+  copy: >
+    remote_src=True
+    src=/etc/supervisor/supervisord.conf
+    dest=/etc/supervisor/supervisord.conf.backup
+  when: not backup.stat.exists
+  become: yes
+  become_user: root
+  tags: supervisor_install
+
+
+- name: Modify supervisord.conf 
+  template: >
+    src=supervisord.conf.j2
+    dest=/etc/supervisor/supervisord.conf
+  become: yes
+  become_user: root
+  tags: supervisor_install
+  notify:
+    - restart supervisor
+ 
+- name: Add config
+  template: >
+    src=supervisor_conf.j2
+    dest="{{project_base_dir}}/conf/supervisor.conf"
+    owner="{{ user }}"
+  tags: supervisor_install
+
+
+- name: create symlink on config
+  file: >
+    src="{{project_base_dir}}/conf/supervisor.conf"
+    dest="/etc/supervisor/conf.d/supervisor.conf"
+    state=link
+  become: yes
+  become_user: root
+  tags: supervisor_install
+
+- meta: flush_handlers
+
+
+
+
+

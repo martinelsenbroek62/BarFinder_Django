@@ -1,0 +1,41 @@
+---
+
+- name: Debian
+  include: debian.yml 
+  when: "ansible_distribution == 'Debian'"
+
+- name: Ubuntu
+  include: ubuntu.yml 
+  when: "ansible_distribution == 'Ubuntu'"
+  
+- name: Install postgresql-{{ postgres.ver }}
+  apt: >
+    update_cache=yes
+    name={{ item }}
+    state=present
+  with_items:
+    - postgresql-{{ postgres.ver }}
+    - postgresql-contrib-{{ postgres.ver }}
+    - python-psycopg2
+  become: yes
+  become_user: root
+  tags: postgres_install
+
+
+- name: Create user
+  postgresql_user: >
+    name="{{ user }}"
+    role_attr_flags=SUPERUSER,CREATEDB,CREATEROLE
+    state=present
+  become: yes
+  become_user: postgres
+  tags: postgres_install
+
+
+- name: Create db
+  postgresql_db: >
+    name="{{ user }}"
+    state=present
+  become: yes
+  become_user: postgres 
+  tags: postgres_install

@@ -1,0 +1,8 @@
+---
+
+- name: restart supervisor
+  service: >
+    name=supervisor
+    state=restarted
+  become: yes
+  become_user: root

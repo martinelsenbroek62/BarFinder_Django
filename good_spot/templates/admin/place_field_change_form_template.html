@@ -1,0 +1,12 @@
+{% extends 'admin/change_form.html' %}
+{% load staticfiles %}
+
+{% block extrahead %}{{ block.super }}
+    <script type="text/javascript" src="{% static 'js/admin/place_field.js' %}"></script>
+{% endblock %}
+
+{% block field_sets %}
+    {% for fieldset in adminform %}
+        {% include "admin/includes/place_field_fieldset.html" %}
+    {% endfor %}
+{% endblock %}

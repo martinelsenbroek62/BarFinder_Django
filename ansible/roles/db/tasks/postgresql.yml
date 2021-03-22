@@ -1,0 +1,15 @@
+---
+
+- name: create postgresql database
+  postgresql_db: >
+    name="{{ project.database }}"
+    login_user="{{ user }}"
+    state=present
+  become: no
+  tags: database
+ 
+- name: backup postgresql database
+  shell: "/usr/bin/pg_dump --no-owner --host={{ dictionary.default.HOST }} --port={{ dictionary.default.PORT }} --username={{ dictionary.default.USER }} --no-password {{ dictionary.default.NAME }} | gzip > {{ project_base_dir }}/backup/db/{{ project.database }}-$(date +%Y-%m-%d-%H%M%S).sql.gz"
+  environment:
+    PGPASSWORD: "{{dictionary.default.PASSWORD}}"
+  tags: database

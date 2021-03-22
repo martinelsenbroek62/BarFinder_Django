@@ -1,0 +1,18 @@
+---
+
+- name: add apt_repository for postgresql
+  apt_repository: >
+    repo='deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main'
+    state=present
+    filename="postgresql"
+  become: yes
+  become_user: root
+  tags: postgres_debian
+
+- name: Add apt key for postgresql
+  apt_key: >
+    url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state=present
+  become: yes
+  become_user: root
+  tags: postgres_debian

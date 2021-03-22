@@ -1,0 +1,26 @@
+---
+
+- name: Check latest files
+  shell: "find {{project_base_dir}}/backup/db -type f -printf '%TY-%Tm-%Td %TT %p\n' | sort | tail -n 3 | awk '{print $3}'"
+  register: dont_delete_file
+  tags: backup_clean
+
+- name: Check all files
+  shell: "ls -1 {{project_base_dir}}/backup/db"
+  register: all_files
+  tags: backup_clean
+
+- name: Check all directories
+  shell: "find {{project_base_dir}}/backup/db -type d -printf '%TY-%Tm-%Td %TT %p\n' | sort | awk '{print $3}'"
+  register: dont_delete_dir
+  tags: backup_clean
+
+- name: Remove all oldest files 
+  file: >
+    path={{project_base_dir}}/backup/db/{{item}}
+    state=absent
+  with_items: "{{all_files.stdout_lines|default([])}}" 
+  when: item not in "{{dont_delete_file.stdout_lines}}" and item not in "{{dont_delete_dir.stdout_lines}}"
+  tags: backup_clean
+
+

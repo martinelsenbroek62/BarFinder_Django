@@ -1,0 +1,50 @@
+[
+  {
+    "model": "cities_light.country",
+    "pk": 1,
+    "fields": {
+      "name_ascii": "Japan",
+      "slug": "japan",
+      "geoname_id": 1861060,
+      "alternate_names": "Japon",
+      "name": "Japan",
+      "code2": "JP",
+      "code3": "JPN",
+      "continent": "AS",
+      "tld": "jp",
+      "phone": "81"
+    }
+  },
+  {
+    "model": "cities_light.country",
+    "pk": 2,
+    "fields": {
+      "name_ascii": "Ecuador",
+      "slug": "ecuador",
+      "geoname_id": 3658394,
+      "alternate_names": "Republic of Ecuador,República del Ecuador,Équateur",
+      "name": "Ecuador",
+      "code2": "EC",
+      "code3": "ECU",
+      "continent": "SA",
+      "tld": "ec",
+      "phone": "593"
+    }
+  },
+  {
+    "model": "cities_light.country",
+    "pk": 3,
+    "fields": {
+      "name_ascii": "Ukraine",
+      "slug": "ukraine",
+      "geoname_id": 690791,
+      "alternate_names": "",
+      "name": "Ukraine",
+      "code2": "UA",
+      "code3": "UKR",
+      "continent": "EU",
+      "tld": "ua",
+      "phone": "380"
+    }
+  }
+]

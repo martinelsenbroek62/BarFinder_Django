@@ -1,0 +1,24 @@
+---
+
+- name: Install mysql-server-5.5
+  apt: >
+    update_cache=yes
+    name={{ item }}
+    state=present
+  with_items:
+    - mysql-server-5.5
+    - libmysqlclient-dev
+    - python-mysqldb
+  become: yes
+  become_user: root
+  tags: mysql_install
+
+- name: create user
+  mysql_user: >
+    name="{{ user }}"
+    login_user=root
+    login_password=''
+    password=''
+    priv=*.*:ALL
+    state=present
+  tags: mysql_install

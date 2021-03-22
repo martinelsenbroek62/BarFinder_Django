@@ -1,0 +1,66 @@
+[
+  {
+    "model": "cities_light.country",
+    "pk": 1,
+    "fields": {
+      "name_ascii": "Germany",
+      "slug": "germany",
+      "geoname_id": 2921044,
+      "alternate_names": "Bundesrepublik Deutschland,Deutschland,Federal Republic of Germany",
+      "name": "Germany",
+      "code2": "DE",
+      "code3": "DEU",
+      "continent": "EU",
+      "tld": "de",
+      "phone": "49"
+    }
+  },
+  {
+    "model": "cities_light.country",
+    "pk": 2,
+    "fields": {
+      "name_ascii": "Spain",
+      "slug": "spain",
+      "geoname_id": 2510769,
+      "alternate_names": "Espagne,Estado Espa\u00f1ol,Kingdom of Spain,Reino de Espa\u00f1a,Spanien,Spanish State",
+      "name": "Spain",
+      "code2": "ES",
+      "code3": "ESP",
+      "continent": "EU",
+      "tld": "es",
+      "phone": "34"
+    }
+  },
+  {
+    "model": "cities_light.country",
+    "pk": 3,
+    "fields": {
+      "name_ascii": "France",
+      "slug": "france",
+      "geoname_id": 3017382,
+      "alternate_names": "Frankreich,R\u00e9publique Fran\u00e7aise",
+      "name": "France",
+      "code2": "FR",
+      "code3": "FRA",
+      "continent": "EU",
+      "tld": "fr",
+      "phone": "33"
+    }
+  },
+  {
+    "model": "cities_light.country",
+    "pk": 4,
+    "fields": {
+      "name_ascii": "Ukraine",
+      "slug": "ukraine",
+      "geoname_id": 690791,
+      "alternate_names": "",
+      "name": "Ukraine",
+      "code2": "UA",
+      "code3": "UKR",
+      "continent": "EU",
+      "tld": "ua",
+      "phone": "380"
+    }
+  }
+]

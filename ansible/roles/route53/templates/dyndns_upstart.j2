@@ -1,0 +1,5 @@
+description "Update Record Set on route53"
+
+start on runlevel [2345]
+
+exec /usr/bin/python /usr/local/bin/dyndns.py

@@ -1,0 +1,8 @@
+Hi Admins,
+
+we received a new feedback from {{report.email}} 
+with app version {{report.app_version}} as following:
+{{report.message}}
+
+regards,
+goodspot system.

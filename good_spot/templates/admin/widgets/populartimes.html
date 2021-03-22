@@ -1,0 +1,28 @@
+<br>
+<div>
+    <table>
+        {% for day in widget.object %}
+            <tr>
+                <td>{{ day.name }}</td>
+                {% for h in day.data %}
+                    <td style="vertical-align: bottom; margin: 0; padding: 0; height: 0px;">
+                        <div style="vertical-align: bottom; height: 40px; width: 23px; position: relative;">
+                            <div
+                                    style="
+                                            background: #eee;
+                                            height: {{ h }}%;
+                                            width: 23px;
+                                            position: absolute;
+                                            bottom: 0;
+                                            ">
+                            </div>
+                        </div>
+                        <div>{{ h }}</div>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<textarea name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+{% if widget.value %}{{ widget.value }}{% endif %}</textarea>

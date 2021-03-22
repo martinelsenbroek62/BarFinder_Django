@@ -1,0 +1,81 @@
+---
+
+- name: Add nginx repository
+  apt_repository: >
+    repo={{ item }}
+    state=present
+    filename="nginx"
+  with_items:
+    - deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx
+    - deb-src http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx
+  become: yes
+  become_user: root
+  tags: nginx_install
+
+- name: Adding Nginx signing key
+  apt_key:
+    url="http://nginx.org/keys/nginx_signing.key"
+    state=present
+  become: yes
+  become_user: root
+  tags: nginx_install
+
+- name: Install nginx
+  apt: >
+    update_cache=yes
+    name={{ item }}
+    state=present
+  with_items:
+    - nginx
+  become: yes
+  become_user: root
+  tags: nginx_install
+
+- name: Add virtual host
+  template: >
+    src=nginx_site.j2
+    dest="{{project_base_dir}}/conf/nginx.conf"
+    owner="{{ user }}" 
+  tags: nginx_install
+
+- name: remove default site
+  file: >
+    path=/etc/nginx/conf.d/default.conf
+    state=absent
+  become: yes
+  become_user: root
+  tags: nginx_install
+
+- name: create symlink on config
+  file: >
+    src="{{project_base_dir}}/conf/nginx.conf"
+    dest="/etc/nginx/conf.d/{{ server }}.conf"
+    state=link
+  become: yes
+  become_user: root
+  tags: nginx_install
+
+- name: Update /etc/logrotate.d/nginx
+  blockinfile: 
+    dest: "/etc/logrotate.d/nginx"
+    block: |
+      {{project_base_dir}}/log/nginx-*.log {
+              su root {{ user }}
+              weekly
+              missingok
+              rotate 8
+              compress
+              delaycompress
+              notifempty
+              sharedscripts
+              postrotate
+                      if [ -f /var/run/nginx.pid ]; then
+                              kill -USR1 `cat /var/run/nginx.pid`
+                      fi
+              endscript
+      }
+
+    state: present
+  tags: nginx_install
+  become: yes
+

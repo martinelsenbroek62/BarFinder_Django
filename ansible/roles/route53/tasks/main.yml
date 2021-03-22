@@ -1,0 +1,19 @@
+---
+
+- name: Add script for automatic update record set
+  template: >
+    src=dyndns.j2
+    dest="/usr/local/bin/dyndns.py"
+  become: yes
+  become_user: root
+  tags: route53
+
+- name: Debian
+  include: debian.yml 
+  when: "ansible_distribution == 'Debian'"
+
+- name: Ubuntu
+  include: ubuntu.yml 
+  when: "ansible_distribution == 'Ubuntu'"
+
+  

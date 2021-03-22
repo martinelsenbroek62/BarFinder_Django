@@ -1,0 +1,71 @@
+---
+
+project:
+  repo_url: git@git.steelkiwi.com:mygoodspot/backend.git    #CHANGE THIS!!!
+  name:     mygoodspot                                   #CHANGE THIS!!!
+  database: mygoodspot                                   #CHANGE THIS!!!
+  settings: "config.settings"                        #CHANGE THIS!!!
+
+#Variables for python version
+Python:
+  ver: 3.6.3     # SET VERSION OF PYTHON - FOR XAMPLE: 3.5.2
+  apt_ver:  3    # SET 3 (IF PYTHON 3) FOR PACKAGES(python-dev) VERSION APT  or LEAVE UNFIELD FOR PYTHON 2 
+
+venv:
+  python:
+    ver: 3.6    # SET VERSION OF PYTHON FOR VIRTUALENV (FOR EXAMPLE 2.7, 3.4, 3.5, 3.6)
+
+#Variables for postgres version
+postgres:
+  ver: 9.6         # SETVERSION OF POSTGRES (FOR EXAMPLE 9.4, 9.5)
+
+slack_notify:
+  url:      "T03P6BDDB/B10BXLQEM/MHZ4EvaadrsAxpqz0EmaSqV6"
+  channel:  "#{{ project.name }}-dev"
+
+certbot_email: "ops@steelkiwi.com"
+
+nginx:
+  domain: "{{ server }}"
+  access_log: "{{project_base_dir}}/log/nginx-access.log"
+  error_log: "{{project_base_dir}}/log/nginx-error.log"
+  static_root: "{{project_base_dir}}/public"
+
+supervisor:
+  celery_command: "worker -A good_spot.taskapp -l INFO"                               #CHANGE THIS!!!
+  celerybeat_command: "beat -A good_spot.taskapp -l INFO"                             #CHANGE THIS!!!
+  celery_flower_command: "flower -A good_spot.taskapp"               #CHANGE THIS!!!
+  websocket_command: "manage.py websocket_server --host 127.0.0.1 --port 9001"   #CHANGE THIS!!!
+  log_dir: "{{project_base_dir}}/log"
+  celery: yes
+  celerybeat: yes
+  celery_flower: yes
+  websocket: no
+
+###Install
+directory: no
+system: no
+python: no
+route53: no
+postgres_install: no
+mysql_install: no
+postgis: no
+redis_install: no
+rabbitmq_install: no
+memcached: no
+nodejs: no
+bower: no
+certbot: no
+supervisor_install: no
+nginx_install: no
+virtualenv: no
+
+###Deploy
+git: yes
+pip: yes
+backup_clean: yes
+db: yes
+migrate: yes
+collectstatic: yes
+supervizorctl: yes
+slack: yes

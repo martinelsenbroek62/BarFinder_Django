@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        table, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<table style="border: 1px solid black; border-collapse: collapse;" cellspacing="0">
+    <tr>
+        <td>
+            User: {{ user.first_name }} {{ user.last_name }}
+        </td>
+        <td>{{ user.email }}
+            <a href="{{ request.META.HTTP_HOST }}/admin/users/user/{{ user.id }}/">Open in admin panel</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Place:</td>
+        <td><h3>
+            {{ place_data.name }} <a href="{{ request.META.HTTP_HOST }}/admin/places/place/{{ place_data.id }}/">Open in
+            admin panel</a></h3></td>
+    </tr>
+    <tr>
+        <td>Price level:</td>
+        <td>{{ place_data.google_price_level }}</td>
+    </tr>
+
+    {% for field in place_data.place_filter_field %}
+        <tr>
+            <td>[{{ field.id }}] {{ field.name }}:</td>
+            <td>
+                {% if field.filter_field_type == 'bool' and field.data %}
+                    <strong>Yes</strong>
+                {% elif field.filter_field_type == 'bool' and not field.data %}
+                    <strong>No</strong>
+                {% endif %}
+
+                {% if field.filter_field_type == 'choice' %}
+                    <ul>
+                        {% for option in field.options %}
+                            <li>
+                                {% if option.id %}
+                                    {{ option.option }}
+                                    {% if option.is_selected %}
+                                        <strong>Yes</strong>
+                                    {% else %}
+                                        <strong>No</strong>
+                                    {% endif %}
+                                {% else %}
+                                    <strong>{{ option.option }}</strong> <strong style="color: red">NEW</strong>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>

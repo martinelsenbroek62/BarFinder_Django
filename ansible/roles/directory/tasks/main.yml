@@ -1,0 +1,23 @@
+---
+
+- name: create needed folders
+  file: >
+    path="{{ project_base_dir }}/{{ item }}"
+    state=directory
+      owner="{{ user }}"
+  with_items:
+    - djangoapp
+    - backup/db
+    - log
+    - public/staticfiles
+    - public/media
+    - conf
+  tags: directory 
+
+- name: symlink project folder
+  file: >
+    src="{{ project_base_dir }}/djangoapp"
+    dest="{{ project_base_dir }}/{{ project.name }}"
+    state=link
+    owner="{{ user }}"
+  tags: directory

@@ -1,0 +1,593 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-24 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: config/settings.py:70
+msgid "English"
+msgstr ""
+
+#: config/settings.py:71
+msgid "French"
+msgstr ""
+
+#: config/settings.py:72
+msgid "Russian"
+msgstr ""
+
+#: config/settings.py:73
+msgid "Ukrainian"
+msgstr ""
+
+#: good_spot/events/models.py:19
+msgid "Once"
+msgstr ""
+
+#: good_spot/events/models.py:20
+msgid "Yearly"
+msgstr ""
+
+#: good_spot/events/models.py:21
+msgid "Monthly"
+msgstr ""
+
+#: good_spot/events/models.py:22
+msgid "Weekly"
+msgstr ""
+
+#: good_spot/events/models.py:23
+msgid "Daily"
+msgstr ""
+
+#: good_spot/events/models.py:24
+msgid "Hourly"
+msgstr ""
+
+#: good_spot/events/models.py:29
+msgid "title"
+msgstr ""
+
+#: good_spot/events/models.py:30
+msgid "start"
+msgstr ""
+
+#: good_spot/events/models.py:32
+msgid "Time to update"
+msgstr ""
+
+#: good_spot/events/models.py:33
+msgid "end"
+msgstr ""
+
+#: good_spot/events/models.py:34
+msgid "This rule will work until this date."
+msgstr ""
+
+#: good_spot/events/models.py:35
+msgid "frequency"
+msgstr ""
+
+#: good_spot/events/models.py:142
+msgid "updating_rule"
+msgstr ""
+
+#: good_spot/filter/models.py:17
+msgid "Name"
+msgstr ""
+
+#: good_spot/filter/models.py:19
+msgid "This field will be available for chosen places types."
+msgstr ""
+
+#: good_spot/filter/models.py:20
+msgid "Is public?"
+msgstr ""
+
+#: good_spot/filter/models.py:21
+msgid "Is filter?"
+msgstr ""
+
+#: good_spot/filter/models.py:22
+msgid "Use this field to generate filters."
+msgstr ""
+
+#: good_spot/filter/models.py:23
+msgid "Title: Bold Upper part of short description"
+msgstr ""
+
+#: good_spot/filter/models.py:24
+msgid ""
+"Use this field to generate features displaying under the title of place."
+msgstr ""
+
+#: good_spot/filter/models.py:25
+msgid "Sub title: Sub part of short description"
+msgstr ""
+
+#: good_spot/filter/models.py:26
+msgid ""
+"Use this field to generate `Short Description` section on detail screen."
+msgstr ""
+
+#: good_spot/filter/models.py:29
+msgid "Show in About Place section"
+msgstr ""
+
+#: good_spot/filter/models.py:30
+msgid "Use this field to generate `About Place` section on detail screen."
+msgstr ""
+
+#: good_spot/filter/models.py:35 good_spot/filter/models.py:36
+msgid "ALL FILTERS---"
+msgstr ""
+
+#: good_spot/filter/models.py:46 good_spot/filter/models.py:47
+msgid "Fields BOOLEAN"
+msgstr ""
+
+#: good_spot/filter/models.py:55 good_spot/filter/models.py:56
+msgid "Fields TEXTUAL"
+msgstr ""
+
+#: good_spot/filter/models.py:63
+msgid ""
+"If you mark this field as `multi` user can select more then one choice in "
+"the Filter in the app."
+msgstr ""
+
+#: good_spot/filter/models.py:65
+msgid "Lets user to choose his tastes in profile."
+msgstr ""
+
+#: good_spot/filter/models.py:66
+msgid ""
+"If checked user will see the section named as this filter field with options "
+"to choose his own tastes."
+msgstr ""
+
+#: good_spot/filter/models.py:70 good_spot/filter/models.py:71
+msgid "Fields SELECTIVE"
+msgstr ""
+
+#: good_spot/filter/models.py:96 good_spot/filter/models.py:97
+msgid "PLACE FIELDS-"
+msgstr ""
+
+#: good_spot/filter/models.py:108 good_spot/filter/models.py:109
+msgid "Place fields SELECTIVE"
+msgstr ""
+
+#: good_spot/filter/models.py:116 good_spot/filter/models.py:117
+msgid "Place fields BOOLEAN"
+msgstr ""
+
+#: good_spot/filter/models.py:124 good_spot/filter/models.py:125
+msgid "Place fields TEXTUAL"
+msgstr ""
+
+#: good_spot/filter/serializers.py:35
+msgid "Expected `place_type` in context but it was not received."
+msgstr ""
+
+#: good_spot/images/models.py:20
+msgid "Image"
+msgstr ""
+
+#: good_spot/images/models.py:22
+msgid "Thumbnail"
+msgstr ""
+
+#: good_spot/places/admin.py:32
+msgid "Update frequentation"
+msgstr ""
+
+#: good_spot/places/admin.py:41
+msgid "Update place from Google"
+msgstr ""
+
+#: good_spot/places/admin.py:45
+msgid "Popular times"
+msgstr ""
+
+#: good_spot/places/admin.py:50 good_spot/places/admin.py:163
+msgid "Has popular times"
+msgstr ""
+
+#: good_spot/places/admin.py:51
+msgid "Does not have popular times"
+msgstr ""
+
+#: good_spot/places/admin.py:62 good_spot/places/admin.py:125
+msgid "Frequentation"
+msgstr ""
+
+#: good_spot/places/admin.py:67
+msgid "Has actual popular times"
+msgstr ""
+
+#: good_spot/places/admin.py:68
+msgid "Does not have actual popular times"
+msgstr ""
+
+#: good_spot/places/admin.py:116
+msgid "Data from Google Place API"
+msgstr ""
+
+#: good_spot/places/admin.py:122
+msgid "Custom data"
+msgstr ""
+
+#: good_spot/places/api.py:340
+msgid "User's report about place."
+msgstr ""
+
+#: good_spot/places/models.py:41
+msgid "Active?"
+msgstr ""
+
+#: good_spot/places/models.py:42
+msgid "Do you want to show this city in dropdown menu in app?"
+msgstr ""
+
+#: good_spot/places/models.py:47
+msgid ""
+"If checked this city will default in application in case when user "
+"disallowed GPS."
+msgstr ""
+
+#: good_spot/places/models.py:54
+msgid "Application cities"
+msgstr ""
+
+#: good_spot/places/models.py:70
+msgid "Place type"
+msgstr ""
+
+#: good_spot/places/models.py:71
+msgid "Place type (plural)"
+msgstr ""
+
+#: good_spot/places/models.py:72
+msgid "Slug"
+msgstr ""
+
+#: good_spot/places/models.py:73
+msgid "Is active?"
+msgstr ""
+
+#: good_spot/places/models.py:73
+msgid "Show in app."
+msgstr ""
+
+#: good_spot/places/models.py:75
+msgid "Is default to show in main screen?"
+msgstr ""
+
+#: good_spot/places/models.py:83
+msgid "There is can be only one default place type. It is already exists."
+msgstr ""
+
+#: good_spot/places/models.py:115
+msgid ""
+"Block <b>City</b> from updating from the Google Places API.<br>It means, if "
+"you change <b>City</b> manually, it won't be rewritten from the Google "
+"Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:119
+msgid "Place name"
+msgstr ""
+
+#: good_spot/places/models.py:121
+msgid ""
+"Block <b>Place name</b> from updating from the Google Places API.<br>It "
+"means, if you change <b>Place name</b> manually, it won't be rewritten from "
+"the Google Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:127
+msgid ""
+"Block <b>Place types</b> from updating from the Google Places API.<br>It "
+"means, if you change <b>Place types</b> manually, it won't be rewritten from "
+"the Google Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:129
+msgid "Place ID"
+msgstr ""
+
+#: good_spot/places/models.py:133
+msgid ""
+"Block <b>Google rating</b> from updating from the Google Places API.<br>It "
+"means, if you change <b>Google rating</b> manually, it won't be rewritten "
+"from the Google Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:138
+msgid ""
+"Block <b>Google price level</b> from updating from the Google Places API."
+"<br>It means, if you change <b>Google price level</b> manually, it won't be "
+"rewritten from the Google Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:142
+msgid ""
+"Block <b>Location</b> from updating from the Google Places API.<br>It means, "
+"if you change <b>Location</b> manually, it won't be rewritten from the "
+"Google Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:144
+msgid "Place address"
+msgstr ""
+
+#: good_spot/places/models.py:146
+msgid ""
+"Block <b>Address</b> from updating from the Google Places API.<br>It means, "
+"if you change <b>Address</b> manually, it won't be rewritten from the Google "
+"Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:148
+msgid "Website"
+msgstr ""
+
+#: good_spot/places/models.py:150
+msgid ""
+"Block <b>Website</b> from updating from the Google Places API.<br>It means, "
+"if you change <b>Website</b> manually, it won't be rewritten from the Google "
+"Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:154
+msgid ""
+"Block <b>Phone</b> from updating from the Google Places API.<br>It means, if "
+"you change <b>Phone</b> manually, it won't be rewritten from the Google "
+"Places API after updating."
+msgstr ""
+
+#: good_spot/places/models.py:168
+msgid "Special event"
+msgstr ""
+
+#: good_spot/places/models.py:333
+msgid "Actual popular times"
+msgstr ""
+
+#: good_spot/places/serializers.py:254
+msgid "City does not exist."
+msgstr ""
+
+#: good_spot/places/serializers.py:259
+msgid "Incorrect slug."
+msgstr ""
+
+#: good_spot/places/serializers.py:270
+msgid "Please, provide `id` for every filter's attribute."
+msgstr ""
+
+#: good_spot/places/serializers.py:272
+msgid "Please, provide `data` or `options` for every filter's attribute."
+msgstr ""
+
+#: good_spot/places/serializers.py:279
+msgid "data for filter with id={} should be list, not {}."
+msgstr ""
+
+#: good_spot/places/serializers.py:282
+msgid "options for filter with id={} should be list, not {}."
+msgstr ""
+
+#: good_spot/places/serializers.py:291
+msgid "Unexpected type ob object {}"
+msgstr ""
+
+#: good_spot/places/serializers.py:294
+msgid "FieldType object with provided id={} does not exist."
+msgstr ""
+
+#: good_spot/places/serializers.py:418
+msgid "Expected `place_type` in query params but it was not received."
+msgstr ""
+
+#: good_spot/places/serializers.py:425
+msgid "Expected `place_type` is integer but it is {}."
+msgstr ""
+
+#: good_spot/populartimes/models.py:14
+msgid "Populartimes"
+msgstr ""
+
+#: good_spot/proxy/models.py:26
+msgid "Proxies"
+msgstr ""
+
+#: good_spot/templates/account/email/email_confirmation_message.txt:3
+#, python-format
+msgid ""
+"\n"
+"Hi,\n"
+"\n"
+"Thanks for using NightApp! Please confirm your email address by clicking on "
+"the link below.\n"
+"\n"
+"%(activate_url)s\n"
+"\n"
+"If you did not sign up for a NightApp account please disregard this email.\n"
+"\n"
+"Cheers,\n"
+"\n"
+"- The NightApp Team\n"
+msgstr ""
+"\n"
+"Приветствуем,\n"
+"\n"
+"Спасибо, что присоединились к NightApp! Пожалуйста, подтвердите ваш email, "
+"кликнув на ссылку ниже\n"
+"\n"
+"%(activate_url)s\n"
+"\n"
+"Если вы не создавали NightApp аккаунт, пожалуйста, игнорируйте это "
+"сообщение.\n"
+"\n"
+"С наилучшими пожеланиями,\n"
+"\n"
+"- Команда NightApp\n"
+
+#: good_spot/templates/account/email/email_confirmation_subject.txt:3
+msgid "Hi, please verify your account"
+msgstr "Пожалуйста, подтвердите свою учетную запись"
+
+#: good_spot/templates/admin/base.html:34
+msgid "Welcome,"
+msgstr ""
+
+#: good_spot/templates/admin/base.html:39
+msgid "View site"
+msgstr ""
+
+#: good_spot/templates/admin/base.html:44
+msgid "Documentation"
+msgstr ""
+
+#: good_spot/templates/admin/base.html:48
+msgid "Change password"
+msgstr ""
+
+#: good_spot/templates/admin/base.html:50
+msgid "Log out"
+msgstr ""
+
+#: good_spot/templates/admin/base.html:60
+msgid "Open updating statistic"
+msgstr ""
+
+#: good_spot/templates/admin/base.html:65
+#: good_spot/templates/places/place_detail.html:20
+#: good_spot/templates/places/place_form.html:53
+msgid "Home"
+msgstr ""
+
+#: good_spot/templates/admin/edit_inline/place_field_tabular.html:23
+#: good_spot/templates/admin/edit_inline/tabular_for_filter_fields.html:31
+msgid "Delete?"
+msgstr ""
+
+#: good_spot/templates/admin/edit_inline/place_field_tabular.html:37
+#: good_spot/templates/admin/edit_inline/tabular_for_filter_fields.html:52
+msgid "Change"
+msgstr ""
+
+#: good_spot/templates/admin/edit_inline/place_field_tabular.html:39
+#: good_spot/templates/admin/edit_inline/tabular_for_filter_fields.html:55
+msgid "View on site"
+msgstr ""
+
+#: good_spot/templates/admin/place_change_form.html:6
+#: good_spot/templates/places/place_detail.html:45
+msgid "Save"
+msgstr ""
+
+#: good_spot/templates/admin/place_change_form.html:8
+msgid "Delete"
+msgstr ""
+
+#: good_spot/templates/base.html:28
+msgid "clear"
+msgstr ""
+
+#: good_spot/templates/places/place_detail.html:21
+#: good_spot/templates/places/place_form.html:54
+msgid "Places"
+msgstr ""
+
+#: good_spot/templates/places/place_detail.html:22
+#: good_spot/templates/places/place_form.html:55
+msgid "Place"
+msgstr ""
+
+#: good_spot/templates/places/place_detail.html:43
+msgid "Save and add another"
+msgstr ""
+
+#: good_spot/templates/places/place_detail.html:44
+#: good_spot/templates/places/place_form.html:65
+msgid "Save and continue editing"
+msgstr ""
+
+#: good_spot/templates/places/place_form.html:56
+msgid "Add place"
+msgstr ""
+
+#: good_spot/templates/places/place_form.html:68
+msgid "Place iD Research Tool"
+msgstr ""
+
+#: good_spot/users/admin.py:38
+msgid "Personal info"
+msgstr ""
+
+#: good_spot/users/admin.py:50
+msgid "Permissions"
+msgstr ""
+
+#: good_spot/users/admin.py:52
+msgid "Important dates"
+msgstr ""
+
+#: good_spot/users/models.py:14
+msgid "student"
+msgstr "студент"
+
+#: good_spot/users/models.py:15
+msgid "employee"
+msgstr "работник"
+
+#: good_spot/users/serializers.py:56
+msgid "Days for going out should be unique."
+msgstr ""
+
+#: good_spot/users/serializers.py:67
+msgid "User does not represent in request."
+msgstr ""
+
+#: good_spot/users/serializers.py:186
+msgid "Invalid password"
+msgstr "Неверный пароль"
+
+#: good_spot/users/serializers.py:196
+msgid ""
+"Email is already registered. Please use \"Sign in\" to connect with this "
+"email address"
+msgstr ""
+"E-mail уже зарегистрирован. Пожалуйста, используйте \"Вход\" для авторизации"
+
+#: good_spot/users/serializers.py:204
+msgid "There is no password linked to this Email address."
+msgstr "Нет пароля, связанного с этим адресом электронной почты."
+
+msgid "Please confirm subscription NightApp"
+msgstr "Пожалуйста, подтвердите подписку NightApp"
+
+msgid "New password has been saved."
+msgstr "Новый пароль сохранен."
+
+msgid "Password reset e-mail has been sent."
+msgstr "Письмо с инструкциями по восстановлению пароля выслано."

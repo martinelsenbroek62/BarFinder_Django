@@ -1,0 +1,26 @@
+[
+  {
+    "model": "places.placetype_active_in_cities",
+    "pk": 1,
+    "fields": {
+      "placetype_id": 1,
+      "city_id": 1
+    }
+  },
+  {
+    "model": "places.placetype_active_in_cities",
+    "pk": 2,
+    "fields": {
+      "placetype_id": 1,
+      "city_id": 2
+    }
+  },
+  {
+    "model": "places.placetype_active_in_cities",
+    "pk": 3,
+    "fields": {
+      "placetype_id": 1,
+      "city_id": 3
+    }
+  }
+]

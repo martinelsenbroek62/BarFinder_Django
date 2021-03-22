@@ -1,0 +1,56 @@
+[
+  {
+    "model": "cities_light.city",
+    "pk": 1,
+    "fields": {
+      "name_ascii": "Tokyo",
+      "slug": "tokyo",
+      "geoname_id": 1850147,
+      "alternate_names": "Tokio",
+      "name": "Tokyo",
+      "display_name": "Tokyo, Tokyo, Japan",
+      "latitude": "35.68950",
+      "longitude": "139.69171",
+      "region": null,
+      "country": 1,
+      "population": 8336599,
+      "feature_code": "PPLC"
+    }
+  },
+  {
+    "model": "cities_light.city",
+    "pk": 2,
+    "fields": {
+      "name_ascii": "Quito",
+      "slug": "quito",
+      "geoname_id": 3652462,
+      "alternate_names": "San Francisco de Quito",
+      "name": "Quito",
+      "display_name": "Quito, Pichincha, Ecuador",
+      "latitude": "-0.22985",
+      "longitude": "-78.52495",
+      "region": null,
+      "country": 2,
+      "population": 1399814,
+      "feature_code": "PPLC"
+    }
+  },
+  {
+    "model": "cities_light.city",
+    "pk": 3,
+    "fields": {
+      "name_ascii": "Kyiv",
+      "slug": "kyiv",
+      "geoname_id": 703448,
+      "alternate_names": "Kiev,Kiew,Kyiw,Киев,Київ",
+      "name": "Kyiv",
+      "display_name": "Kyiv, Kyiv City, Ukraine",
+      "latitude": "50.45466",
+      "longitude": "30.52380",
+      "region": null,
+      "country": 3,
+      "population": 2797553,
+      "feature_code": "PPLC"
+    }
+  }
+]

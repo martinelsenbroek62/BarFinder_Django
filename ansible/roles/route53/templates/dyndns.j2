@@ -1,0 +1,40 @@
+#! /usr/bin/python
+
+import syslog
+import socket
+import urllib2
+import requests
+import json
+import boto.route53
+from boto.route53.connection import Route53Connection
+from boto.route53.record import ResourceRecordSets
+
+
+domain = socket.gethostname()
+
+response = urllib2.urlopen('http://169.254.169.254/latest/meta-data/public-ipv4/')
+ip_current = response.read()
+
+payload = {'name': domain }
+response = requests.get('https://dns.google.com/resolve', params=payload)
+
+try:
+    ip_old = json.loads(response.content)['Answer'][0]['data']
+except KeyError:
+      ip_old = "Error"
+
+def create_record():
+    connect = Route53Connection()
+    changes = ResourceRecordSets(connect, "Z2HL8ZNT1KF0JE")
+    change = changes.add_change("UPSERT", domain, "A", ttl=300)
+    change.add_value(ip_current)
+    result = changes.commit()
+
+if ip_old == "Error":
+    create_record()
+    syslog.syslog('Record Set Value is create!!!')
+elif ip_current != ip_old:
+    create_record()
+    syslog.syslog('Record Set Value is change!!!')
+else:
+    syslog.syslog('Record set is don\'t changing')

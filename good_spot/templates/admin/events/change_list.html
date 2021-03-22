@@ -1,0 +1,27 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+    <div style="font-size: 16px;">
+        <h3>Current setting for using proxies:</h3>
+
+        <table>
+            <tr>
+                <td>{{ max_requests_per_hour }}</td>
+                <td>The recommended continued rate per hour per IP.</td>
+            </tr>
+            <tr>
+                <td>{{ delay_in_min }}</td>
+                <td>
+                    Recommended delay between requests using proxy (provide in minutes). \nShould be at least 4, because
+                    `seo-proxies.com` recommends max 15 requests per hour per one IP.
+                </td>
+            </tr>
+        </table>
+
+        <p>*You can change these settings <a href="/admin/constance/config/"> here</a></p>
+
+        <p>As we use <strong>{{ proxies_count }}</strong> proxies,
+            we can update <strong>{{ updates_count }} places per hour.</strong></p>
+    </div>
+    {{ block.super }}
+{% endblock %}

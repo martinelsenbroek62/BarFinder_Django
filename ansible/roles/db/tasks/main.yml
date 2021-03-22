@@ -1,0 +1,26 @@
+---
+
+- name: Check settings.DATABASES
+  command: "{{ project_venv_dir }}/bin/python -c \"import os; os.chdir('{{ project_dir }}'); from django.conf import settings; name = settings.DATABASES; print(name)\""
+  register: result
+  environment:
+    DJANGO_SETTINGS_MODULE: "{{project.settings}}"
+  tags: database
+
+- set_fact:
+    dictionary: "{{ result.stdout }}"
+  tags: database
+
+
+- debug: var=dictionary.default
+  tags: database
+
+- name: Mysql
+  include: mysql.yml 
+  when: dictionary.default.ENGINE == "django.db.backends.mysql"
+
+- name: Postgresql
+  include: postgresql.yml 
+  when: (dictionary.default.ENGINE == "django.db.backends.postgresql") or
+        (dictionary.default.ENGINE == "django.db.backends.postgresql_psycopg2") or
+        (dictionary.default.ENGINE == "django.contrib.gis.db.backends.postgis")

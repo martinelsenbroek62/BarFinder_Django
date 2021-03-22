@@ -1,0 +1,31 @@
+---
+
+- name: Debian
+  include: debian.yml 
+  when: "ansible_distribution == 'Debian'"
+
+- name: Ubuntu
+  include: ubuntu.yml 
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Does dhparam exist
+  stat: path=/etc/ssl/private/dhparam.pem 
+  register: certificate_exists
+  become: yes
+  become_user: root
+  tags: dhparam
+
+- name: Generate dhparam
+  shell: openssl dhparam -out /etc/ssl/private/dhparam.pem 2048
+  when: certificate_exists.stat.exists == False
+  become: yes
+  become_user: root
+  tags: dhparam
+
+- name: Reload nginx
+  service: >
+    name=nginx
+    state=reloaded
+  become: yes
+  become_user: root
+  tags: certbot_nginx

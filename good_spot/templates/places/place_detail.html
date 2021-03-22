@@ -1,0 +1,48 @@
+{% extends 'base_editor.html' %}
+{% load staticfiles i18n %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript">
+        var properties = {{ properties|safe }};
+        var initial_data = {{ initial|safe }};
+        var updating_rules_schema_items = {{ updating_rules_schema_items|safe }};
+        var updating_rules_initial = {{ updating_rules_initial|safe }};
+
+        var url = "{% url 'api:editor:place_editor-detail' object.id %}";
+    </script>
+    <script src="{% static 'js/place_editor/place_detail.js' %}"></script>
+    {#    <script src="{% static 'js/place_editor/place_calendar.js' %}"></script>#}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo; <a href="/admin/places/">{% trans 'Places' %}</a>
+        &rsaquo; <a href="/admin/places/place/">{% trans 'Place' %}</a>
+        &rsaquo; {{ object }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    {#    <div id="upd_rules">#}
+    {#        <h4>{% trans 'This place will be updated at:' %}</h4>#}
+    {#        <table>#}
+    {#            {% for rule in updating_place_types_rules %}#}
+    {#                <div>{{ rule }} {{ rule.start|date:"A" }}</div>#}
+    {#            {% endfor %}#}
+    {#        </table>#}
+    {#    </div>#}
+    {##}
+    {#    <div id="place_calendar_holder"></div>#}
+    {#    <button id='save_rules'>{% trans "Save updating rules" %}</button>#}
+
+    <div id="place_editor_holder"></div>
+
+    <div class="fixed-buttons-bar" style="position: fixed; bottom: 30px; padding: 5px; background: lightgray;">
+        <button id='add_another'>{% trans "Save and add another" %}</button>
+        <button id='submit'>{% trans "Save and continue editing" %}</button>
+        <button id='submit_and_quit'>{% trans "Save" %}</button>
+    </div>
+    {% if populartimes %}{{ populartimes }}{% endif %}
+{% endblock %}

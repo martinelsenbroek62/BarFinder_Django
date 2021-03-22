@@ -1,0 +1,16 @@
+---
+
+- name: get updater name
+  local_action: command git config user.name
+  register: updater
+  tags: slack
+
+- name: send notification via Slack
+  local_action:
+    module: slack
+    token: "{{ slack_notify.url }}"
+    channel: "{{ slack_notify.channel }}"
+    msg: "*{{ server }}* server has been updated by *{{ updater.stdout }}*"
+    parse: "full"
+    link_names: 1
+  tags: slack

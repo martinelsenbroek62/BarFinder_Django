@@ -1,0 +1,19 @@
+---
+
+- name: Check pip
+  stat: path=/usr/bin/pip
+  register: pip2
+  tags: virtualenv
+
+- name: Check pip3
+  stat: path=/usr/bin/pip3
+  register: pip3
+  tags: virtualenv
+
+- name: Pip
+  include: pip.yml 
+  when: pip2.stat.exists
+
+- name: Pip3
+  include: pip3.yml 
+  when: pip3.stat.exists

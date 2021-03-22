@@ -1,0 +1,5 @@
+<select class="tmp_value" multiple="multiple">
+    {% for choice in choices %}
+        <option {% if choice in values %}selected{% endif %} value="{{ choice }}">{{ choice }}</option>
+    {% endfor %}
+</select>

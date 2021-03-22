@@ -1,0 +1,72 @@
+[
+  {
+    "model": "places.placetype",
+    "pk": 1,
+    "fields": {
+      "slug": "night_club",
+      "name": "Night Club",
+      "name_en": "Night Club",
+      "name_fr": null,
+      "name_ru": null,
+      "name_uk": null,
+      "is_active": true,
+      "is_default": false
+    }
+  },
+  {
+    "model": "places.placetype",
+    "pk": 2,
+    "fields": {
+      "slug": "bar",
+      "name": "Bar",
+      "name_en": "Bar",
+      "name_fr": null,
+      "name_ru": null,
+      "name_uk": null,
+      "is_active": true,
+      "is_default": true
+    }
+  },
+  {
+    "model": "places.placetype",
+    "pk": 3,
+    "fields": {
+      "slug": "restaurant",
+      "name": "Restaurant",
+      "name_en": "Restaurant",
+      "name_fr": null,
+      "name_ru": null,
+      "name_uk": null,
+      "is_active": true,
+      "is_default": false
+    }
+  },
+  {
+    "model": "places.placetype",
+    "pk": 4,
+    "fields": {
+      "slug": "karaoke",
+      "name": "Karaoke",
+      "name_en": "Karaoke",
+      "name_fr": null,
+      "name_ru": null,
+      "name_uk": null,
+      "is_active": true,
+      "is_default": false
+    }
+  },
+  {
+    "model": "places.placetype",
+    "pk": 5,
+    "fields": {
+      "slug": "Sport",
+      "name": "Sport",
+      "name_en": "Sport",
+      "name_fr": null,
+      "name_ru": null,
+      "name_uk": null,
+      "is_active": true,
+      "is_default": false
+    }
+  }
+]

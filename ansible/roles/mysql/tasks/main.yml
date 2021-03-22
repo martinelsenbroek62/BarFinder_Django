@@ -1,0 +1,32 @@
+---
+
+- name: enable mysql
+  service: >
+    name=mysql
+    enabled=yes
+    runlevel=default
+    state=started
+  become: yes
+  become_user: root
+  tags: mysql
+
+- name: create user
+  mysql_user: >
+    name={{ db_user }}
+    login_user=root
+    login_password=''
+    password=''
+    priv=*.*:ALL
+    state=present
+  become: no
+  tags: db
+
+- name: create database
+  mysql_db: >
+    name={{ db_name }}
+    login_user={{ db_user }}
+    encoding='utf8'
+    state=present
+  become: no
+  tags: db
+

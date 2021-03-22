@@ -1,0 +1,19 @@
+---
+
+- name: Install packages required by the Django app inside virtualenv
+  pip: >
+    requirements={{ requirements_file }}
+    executable="{{ virtualenv_path }}/bin/pip"
+  become: no
+  tags: requirements
+
+- name: Run Django database migrations
+  django_manage: >
+    command=migrate
+    app_path="{{ project_path }}"
+    virtualenv="{{ virtualenv_path }}"
+    settings="{{ django_settings }}"
+  when: run_django_db_migrations is defined and run_django_db_migrations
+  become: no
+  tags: django.migrate
+

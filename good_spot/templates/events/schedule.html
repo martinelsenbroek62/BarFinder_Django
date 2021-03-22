@@ -1,0 +1,75 @@
+{% extends 'admin/base_site.html' %}
+{% load staticfiles i18n %}
+
+{% block extrahead %}
+    <script src="{% static 'js/libs/chart.js' %}"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div style="width: 75%">
+        <p>
+            {% if updates_switched_on %}
+                Updates are <strong style="color: green">switched on</strong>.
+            {% else %}
+                Updates are <strong style="color: red">switched off</strong>.
+            {% endif %}
+            You can change it in <a href="/admin/constance/config/">settings</a> (UPDATE_PLACES_HOURLY)
+        </p>
+
+        <p>{{ proxies_count }} proxies are available (it depends on your license).</p>
+        <p>Maximum {{ recommended_updates_count }} updates per hour are recommended.</p>
+        <p {% if places_count > recommended_updates_count %}style="color:red;" {% endif %}>
+            Current value of updates is {{ places_count }}
+        </p>
+        {% if places_count > recommended_updates_count %}
+            <p style="color: red; ">
+                It's better to hide some places from updating or upgrade your
+                <a href="http://seo-proxies.com/">licence</a>
+            </p>
+        {% endif %}
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+        var barChartData = {
+            labels: {{ stat_cities|safe }},
+
+            datasets: {{ datasets|safe }}
+
+        };
+        window.onload = function () {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Updating places'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    responsive: true,
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+            });
+        };
+
+    </script>
+
+{% endblock %}

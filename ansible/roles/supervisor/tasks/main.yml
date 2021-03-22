@@ -1,0 +1,11 @@
+---
+
+- name: enable supervisor
+  service: >
+    name=supervisor
+    enabled=yes
+    runlevel=default
+    state=started
+  become: yes
+  become_user: root
+  tags: supervisor
