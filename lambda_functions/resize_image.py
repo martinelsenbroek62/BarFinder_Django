@@ -12,7 +12,7 @@ import piexif
 from PIL import Image
 
 s3_client = boto3.client('s3')
-file_sizes = [(480, 480,), ]
+file_sizes = [(480, 480, 3), ]
 
 
 def prepare_resize_path(key, size=(200, 300)):

@@ -18,7 +18,7 @@
 
 ## Run Celery worker
 
-* ``celery -A good_spot.taskapp worker -l info``
+* ``celery -A good_spot.taskapp workers -l info``
 * ``celery beat -A good_spot.taskapp -l info``
 
 ## Populate database with cities
@@ -27,7 +27,7 @@
 
 ## Proxy
 
-We use http://seo-proxies.com/
+We use http://proxies.com/
 Please, add corresponding credentials into `.env`
 * DJANGO_SEOPROXY_APIUSERID
 * DJANGO_SEOPROXY_APIKEY

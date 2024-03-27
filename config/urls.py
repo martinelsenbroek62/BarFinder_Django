@@ -17,7 +17,7 @@ urlpatterns = [
     url(settings.ADMIN_URL, include(admin.site.urls)),
     url('^api/', include('config.api_urls', namespace='api')),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^events/', include('good_spot.events.urls')),
+    url(r'^event/', include('good_spot.events.urls')),
 
 ]
 
